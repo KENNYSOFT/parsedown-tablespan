@@ -1,0 +1,21 @@
+{
+    "name": "kennysoft/parsedown-tablespan",
+    "description": "An extension of ParsedownExtra that adds support for rowspan and colspan.",
+    "keywords": ["markdown", "markdown extra", "parser", "parsedown"],
+    "homepage": "https://github.com/KENNYSOFT/parsedown-tablespan",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "KENNYSOFT",
+            "email": "hyeonmin.park@kennysoft.kr",
+            "homepage": "https://kennysoft.kr"
+        }
+    ],
+    "require": {
+        "erusev/parsedown-extra": "~0.7"
+    },
+    "autoload": {
+        "psr-0": {"ParsedownTablespan": ""}
+    }
+}
