@@ -6,10 +6,10 @@ An extension of [ParsedownExtra](https://github.com/erusev/parsedown-extra) and 
 
 ### Composer
 
-Install the [composer package](https://packagist.org/packages/KENNYSOFT/parsedown-tablespan "The Parsedown Tablespan package on packagist.org") by running the following command:
+Install the [composer package](https://packagist.org/packages/kennysoft/parsedown-tablespan "The Parsedown Tablespan package on packagist.org") by running the following command:
 
 ```bash
-composer require KENNYSOFT/parsedown-tablespan
+composer require kennysoft/parsedown-tablespan
 ```
 
 ### Manual
@@ -38,41 +38,41 @@ Prints:
 <table>
 <thead>
 <tr>
-<th align="center" colspan="3">Colspan</th>
+<th align="center" style="text-align: center;" colspan="3">Colspan</th>
 <th colspan="2">for thead</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td rowspan="2">Lorem</td>
-<td align="center">ipsum</td>
-<td align="right">dolor</td>
+<td align="center" style="text-align: center;">ipsum</td>
+<td align="right" style="text-align: right;">dolor</td>
 <td>sit</td>
 <td>amet</td>
 </tr>
 <tr>
-<td align="center">-</td>
-<td align="right" colspan="2">right align</td>
+<td align="center" style="text-align: center;">-</td>
+<td align="right" style="text-align: right;" colspan="2">right align</td>
 <td>.</td>
 </tr>
 <tr>
 <td>,</td>
-<td align="center" colspan="2">center align</td>
+<td align="center" style="text-align: center;" colspan="2">center align</td>
 <td colspan="2" rowspan="2">2x2 cell</td>
 </tr>
 <tr>
-<td align="center" colspan="2" rowspan="2">another 2x2</td>
-<td align="right">+</td>
+<td align="center" style="text-align: center;" colspan="2" rowspan="2">another 2x2</td>
+<td align="right" style="text-align: right;">+</td>
 </tr>
 <tr>
-<td align="right"></td>
+<td align="right" style="text-align: right;"></td>
 <td></td>
 <td>!</td>
 </tr>
 </tbody>
 </table>
 
-_(Since GFM does not accept style attribute for cells, upper table is made with `align` attribute which is not supported in HTML5, just to show what will be generated.)_
+_(Since GitHub does not accept style attribute for cells, upper table is made with `align` attribute which is not supported in HTML5, just to show what will be generated.)_
 
 ## License
 
