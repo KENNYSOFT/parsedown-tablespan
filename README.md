@@ -2,6 +2,8 @@
 
 An extension of [ParsedownExtra](https://github.com/erusev/parsedown-extra) and [Parsedown](http://parsedown.org/) that adds support for rowspan and colspan.
 
+Also, [ParsedownExtended](https://github.com/BenjaminHoegh/ParsedownExtended) 1.1+ provides in the same way.
+
 ## Installation
 
 ### Composer
