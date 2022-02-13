@@ -1,7 +1,7 @@
 <?php
 class ParsedownTablespan extends ParsedownExtra
 {
-    const VERSION = '1.0.0';
+    const VERSION = '1.1.0';
 
     protected function blockTableComplete(array $Block)
     {
@@ -10,14 +10,14 @@ class ParsedownTablespan extends ParsedownExtra
             return null;
         }
 
-        $HeaderElements =& $Block['element']['text'][0]['text'][0]['text'];
+        $HeaderElements =& $Block['element']['elements'][0]['elements'][0]['elements'];
 
         for ($index = count($HeaderElements) - 1; $index >= 0; --$index)
         {
             $colspan = 1;
             $HeaderElement =& $HeaderElements[$index];
 
-            while ($index && $HeaderElements[$index - 1]['text'] === '>')
+            while ($index && $HeaderElements[$index - 1]['handler']['argument'] === '>')
             {
                 $colspan++;
                 $PreviousHeaderElement =& $HeaderElements[--$index];
@@ -46,18 +46,18 @@ class ParsedownTablespan extends ParsedownExtra
             }
         }
 
-        $Rows =& $Block['element']['text'][1]['text'];
+        $Rows =& $Block['element']['elements'][1]['elements'];
 
         foreach ($Rows as $RowNo => &$Row)
         {
-            $Elements =& $Row['text'];
+            $Elements =& $Row['elements'];
 
             for ($index = count($Elements) - 1; $index >= 0; --$index)
             {
                 $colspan = 1;
                 $Element =& $Elements[$index];
 
-                while ($index && $Elements[$index - 1]['text'] === '>')
+                while ($index && $Elements[$index - 1]['handler']['argument'] === '>')
                 {
                     $colspan++;
                     $PreviousElement =& $Elements[--$index];
@@ -81,7 +81,7 @@ class ParsedownTablespan extends ParsedownExtra
 
         foreach ($Rows as $RowNo => &$Row)
         {
-            $Elements =& $Row['text'];
+            $Elements =& $Row['elements'];
 
             foreach ($Elements as $index => &$Element)
             {
@@ -92,9 +92,9 @@ class ParsedownTablespan extends ParsedownExtra
                     continue;
                 }
 
-                while ($RowNo + $rowspan < count($Rows) && $index < count($Rows[$RowNo + $rowspan]['text']) && $Rows[$RowNo + $rowspan]['text'][$index]['text'] === '^' && (@$Element['attributes']['colspan'] ?: null) === (@$Rows[$RowNo + $rowspan]['text'][$index]['attributes']['colspan'] ?: null))
+                while ($RowNo + $rowspan < count($Rows) && $index < count($Rows[$RowNo + $rowspan]['elements']) && $Rows[$RowNo + $rowspan]['elements'][$index]['handler']['argument'] === '^' && (@$Element['attributes']['colspan'] ?: null) === (@$Rows[$RowNo + $rowspan]['elements'][$index]['attributes']['colspan'] ?: null))
                 {
-                    $Rows[$RowNo + $rowspan]['text'][$index]['merged'] = true;
+                    $Rows[$RowNo + $rowspan]['elements'][$index]['merged'] = true;
                     $rowspan++;
                 }
 
@@ -111,7 +111,7 @@ class ParsedownTablespan extends ParsedownExtra
 
         foreach ($Rows as $RowNo => &$Row)
         {
-            $Elements =& $Row['text'];
+            $Elements =& $Row['elements'];
 
             for ($index = count($Elements) - 1; $index >= 0; --$index)
             {
